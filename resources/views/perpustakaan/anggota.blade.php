@@ -8,6 +8,10 @@
 <body>
     <h1>Data Anggota Perpustakaan</h1>
     <form action="{{ route('get_buku') }}">
+        <label for="id_anggota">ID Anggota</label>
+        <br>
+        <input type="text" name="id_anggota" id="id_anggota">
+        <br><br>
         <label for="kode_anggota">Kode Anggota</label>
         <br>
         <input type="text" name="kode_anggota" id="kode_anggota">

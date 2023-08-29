@@ -9,6 +9,10 @@
 <body>
     <h1>Data Buku</h1>
     <form action="{{ route('get_petugas') }}">
+        <label for="id_buku">ID Buku</label>
+        <br>
+        <input type="text" name="id_buku" id="id_buku">
+        <br><br>
         <label for="kode_buku">Kode Buku</label>
         <br>
         <input type="text" name="kode_buku" id="kode_buku">
