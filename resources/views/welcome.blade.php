@@ -30,7 +30,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Content Wrapper. Contains page content -->
         @include('separate.content')
-        @yield('content')
         <!-- /.content-wrapper -->
 
         <!-- Main Footer -->
