@@ -21,6 +21,9 @@ use App\Http\Controllers\{
 Route::get('/', function () {
     return view('welcome');
 })->name('dashboard');
+
 Route::resource('/buku', BukuController::class);
 
 Route::resource('/anggota', AnggotaController::class);
+
+Route::resource('/petugas', PetugasController::class);
