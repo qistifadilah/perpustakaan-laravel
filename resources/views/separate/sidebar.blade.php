@@ -36,7 +36,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('get_anggota') }}" class="nav-link">
+                    <a href="{{ route('anggota.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Data Anggota
@@ -44,7 +44,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('get_buku') }}" class="nav-link">
+                    <a href="{{ route('buku.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Data Buku
@@ -52,10 +52,34 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('get_petugas') }}" class="nav-link">
+                    <a href="{#" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Data Petugas
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{  route('anggota.create') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Create Anggota
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{  route('buku.create') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Create Buku
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Create Petugas
                         </p>
                     </a>
                 </li>

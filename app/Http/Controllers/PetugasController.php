@@ -17,7 +17,7 @@ class PetugasController extends Controller
     public function petugas()
     {
         //
-        return view('perpustakaan.petugas');
+        return view('petugas.create');
     }
 
     /**
