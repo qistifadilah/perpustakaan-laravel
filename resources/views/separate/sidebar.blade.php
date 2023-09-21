@@ -36,52 +36,91 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('anggota.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                    <div class="nav-link">
+                        <i class="nav-icon fas fa-book"></i>
                         <p>
-                            Data Anggota
+                            Anggota
+                            <i class="right fas fa-angle-left"></i>
                         </p>
-                    </a>
+                    </div>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('anggota.index') }}" class="nav-link">
+                                <i class="nav-icon far fa-circle"></i>
+                                <p>
+                                    Data Anggota
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('anggota.create') }}" class="nav-link">
+                                <i class="nav-icon far fa-circle"></i>
+                                <p>
+                                    Add Data Anggota
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('buku.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                    <div class="nav-link">
+                        <i class="nav-icon fas fa-book"></i>
                         <p>
-                            Data Buku
+                            Buku
+                            <i class="right fas fa-angle-left"></i>
                         </p>
-                    </a>
+                    </div>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('buku.index') }}" class="nav-link">
+                                <i class="nav-icon far fa-circle"></i>
+                                <p>
+                                    Data Buku
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('buku.create') }}" class="nav-link">
+                                <i class="nav-icon far fa-circle"></i>
+                                <p>
+                                    Add Data Buku
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                    <div class="nav-link">
+                        <i class="nav-icon fas fa-book"></i>
                         <p>
-                            Data Petugas
+                            Petugas
+                            <i class="right fas fa-angle-left"></i>
                         </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{  route('anggota.create') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Create Anggota
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{  route('buku.create') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Create Buku
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Create Petugas
-                        </p>
-                    </a>
+                    </div>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('petugas.index') }}" class="nav-link">
+                                <i class="nav-icon far fa-circle"></i>
+                                <p>
+                                    Data Petugas
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('petugas.create') }}" class="nav-link">
+                                <i class="nav-icon far fa-circle"></i>
+                                <p>
+                                    Add Data Petugas
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>

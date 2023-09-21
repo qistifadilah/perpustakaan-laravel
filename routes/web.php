@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     AnggotaController, 
     BukuController, 
+    RakController,
     PetugasController
 };
 
@@ -22,8 +23,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('dashboard');
 
+Route::resource('/anggota', AnggotaController::class);
+
 Route::resource('/buku', BukuController::class);
 
-Route::resource('/anggota', AnggotaController::class);
+Route::resource('/rak', RakController::class);
 
 Route::resource('/petugas', PetugasController::class);

@@ -75,6 +75,25 @@ class BukuController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $request->validate([
+            'kode' => 'required',
+            'judul' => 'required',
+            'penulis' => 'required',
+            'penerbit' => 'required',
+            'tahun' => 'required',
+            'stok' => 'required',
+        ]);
+
+        $query = DB::table('books')->update([
+            'kode' => $request['kode'],
+            'judul' => $request['judul'],
+            'penulis' => $request['penulis'],
+            'penerbit' => $request['penerbit'],
+            'tahun' => $request['tahun'],
+            'stok' => $request['stok'],
+        ]);
+
+        return redirect()->route('buku.index');
     }
 
     /**
@@ -83,5 +102,6 @@ class BukuController extends Controller
     public function destroy(string $id)
     {
         //
+    
     }
 }

@@ -17,38 +17,38 @@
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="kode">Kode Buku</label>
-                                    <input class="form-control" type="text" name="kode" id="kode"
-                                        placeholder="Masukan kode">
+                                    <label for="kode_buku">Kode Buku</label>
+                                    <input class="form-control" type="text" name="kode_buku" id="kode_buku"
+                                        placeholder="Input kode">
                                 </div>
                                 <div class="form-group">
-                                    <label for="judul">Judul</label>
-                                    <input class="form-control" type="text" name="judul" id="judul"
-                                        placeholder="Masukan judul">
+                                    <label for="judul_buku">Judul</label>
+                                    <input class="form-control" type="text" name="judul_buku" id="judul_buku"
+                                        placeholder="Input judul">
                                 </div>
                                 <div class="form-group">
-                                    <label for="penulis" name="penulis" id="penulis">Penulis</label>
-                                    <input class="form-control" type="text" name="penulis" id="penulis"
-                                        placeholder="Masukan nama penulis">
+                                    <label for="penulis_buku" name="penulis_buku" id="penulis_buku">Penulis</label>
+                                    <input class="form-control" type="text" name="penulis_buku" id="penulis_buku"
+                                        placeholder="Input nama penulis">
                                 </div>
                                 <div class="form-group">
-                                    <label for="penerbit" name="penerbit" id="penerbit">Penerbit</label>
-                                    <input class="form-control" type="text" name="penerbit" id="penerbit"
-                                        placeholder="Masukan nama penerbit">
+                                    <label for="penerbit_buku" name="penerbit_buku" id="penerbit_buku">Penerbit</label>
+                                    <input class="form-control" type="text" name="penerbit_buku" id="penerbit_buku"
+                                        placeholder="Input nama penerbit">
                                 </div>
                                 <div class="form-group">
-                                    <label for="tahun" name="tahun" id="tahun">Tahun Terbit</label>
+                                    <label for="tahun_terbit" name="tahun_terbit" id="tahun_terbit">Tahun Terbit</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                         </div>
-                                        <input class="form-control" type="number" name="tahun" id="tahun">
+                                        <input class="form-control" type="number" name="tahun_terbit" id="tahun_terbit">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="stok" name="stok" id="stok">Stok Buku</label>
                                     <input class="form-control" type="number" name="stok"
-                                        id="stok"placeholder="Masukan angka">
+                                        id="stok"placeholder="Input angka">
                                 </div>
                             </div>
 
