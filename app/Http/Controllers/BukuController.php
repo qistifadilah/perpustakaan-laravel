@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rak;
+use App\Models\Buku;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class BukuController extends Controller
 {
@@ -13,85 +14,86 @@ class BukuController extends Controller
     public function index()
     {
         //
-        $books = DB::table('books')->get();
-        return view(('buku.index'), compact('buku'));
+        $buku = Buku::all();
+        return view('buku.index', compact('buku'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Rak $rak)
     {
         //
-        return view('buku.create');
+        $rak = $rak->all();
+        return view('buku.create', compact('rak'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Buku $buku)
     {
         //
         $request->validate([
-            'kode' => 'required',
-            'judul' => 'required',
-            'penulis' => 'required',
-            'penerbit' => 'required',
-            'tahun' => 'required',
+            'kode_buku' => 'required',
+            'judul_buku' => 'required',
+            'penulis_buku' => 'required',
+            'penerbit_buku' => 'required',
+            'tahun_terbit' => 'required',
             'stok' => 'required',
+            'id_rak' => 'required',
         ]);
 
-        $query = DB::table('books')->insert([
-            'kode' => $request['kode'],
-            'judul' => $request['judul'],
-            'penulis' => $request['penulis'],
-            'penerbit' => $request['penerbit'],
-            'tahun' => $request['tahun'],
+        // insert data use Eloquent ORM
+        $buku::create([
+            'kode_buku' => $request['kode_buku'],
+            'judul_buku' => $request['judul_buku'],
+            'penulis_buku' => $request['penulis_buku'],
+            'penerbit_buku' => $request['penerbit_buku'],
+            'tahun_terbit' => $request['tahun_terbit'],
             'stok' => $request['stok'],
+            'id_rak' => $request['id_rak']
         ]);
 
-        return redirect('/buku');
+        return redirect()->route('buku.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Buku $buku, Rak $rak)
     {
         //
+        return view('buku.show', compact('buku'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Rak $rak)
     {
         //
+        $rak = $rak->all();
+        return view('buku.create', compact('rak'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Buku $buku)
     {
         //
         $request->validate([
-            'kode' => 'required',
-            'judul' => 'required',
-            'penulis' => 'required',
-            'penerbit' => 'required',
-            'tahun' => 'required',
+            'kode_buku' => 'required',
+            'judul_buku' => 'required',
+            'penulis_buku' => 'required',
+            'penerbit_buku' => 'required',
+            'tahun_terbit' => 'required',
             'stok' => 'required',
+            'id_rak' => 'required',
         ]);
 
-        $query = DB::table('books')->update([
-            'kode' => $request['kode'],
-            'judul' => $request['judul'],
-            'penulis' => $request['penulis'],
-            'penerbit' => $request['penerbit'],
-            'tahun' => $request['tahun'],
-            'stok' => $request['stok'],
-        ]);
+        $buku->update($request->all());
 
         return redirect()->route('buku.index');
     }
@@ -99,9 +101,12 @@ class BukuController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Buku $buku)
     {
         //
-    
+        //$buku = Buku::find($id);
+        //$buku->delete();
+        $buku = Buku::where('id', $buku->id)->delete();
+        return redirect()->route('buku.index');
     }
 }

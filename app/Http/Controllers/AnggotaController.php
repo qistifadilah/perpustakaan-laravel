@@ -33,7 +33,7 @@ class AnggotaController extends Controller
     {
         //
         $request->validate([
-            'kode_anggota' => 'required',
+            'kode_anggota' => 'required|unique:members',
             'nama_anggota' => 'required',
             'jk_anggota' => 'required',
             'jurusan_anggota' => 'required',
@@ -84,7 +84,7 @@ class AnggotaController extends Controller
             'nama_anggota' => 'required',
             'jk_anggota' => 'required',
             'jurusan_anggota' => 'required',
-            'no_telp_anggota' => 'required',
+            'no_telp_anggota' => 'required|numeric',
             'alamat_anggota' => 'required',
         ]);
 

@@ -30,11 +30,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         @include('separate.sidebar')
 
         <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
-                @include('separate.content_header')
-                @yield('content')
-            </div>
-       
+        <div class="content-wrapper">
+            @include('separate.content_header')
+            @yield('content')
+        </div>
+
         <!-- /.content-wrapper -->
 
         <!-- Main Footer -->

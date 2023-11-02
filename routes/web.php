@@ -5,7 +5,9 @@ use App\Http\Controllers\{
     AnggotaController, 
     BukuController, 
     RakController,
-    PetugasController
+    PetugasController,
+    PeminjamanController,
+    AuthController
 };
 
 /*
@@ -20,13 +22,35 @@ use App\Http\Controllers\{
 */
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('dashboard');
+    return view('auth.login');
+});
 
-Route::resource('/anggota', AnggotaController::class);
+Route::resource('/anggota', AnggotaController::class)->middleware('auth');
 
-Route::resource('/buku', BukuController::class);
+Route::resource('/buku', BukuController::class)->middleware('auth');
 
-Route::resource('/rak', RakController::class);
+Route::resource('/rak', RakController::class)->middleware('auth');
 
-Route::resource('/petugas', PetugasController::class);
+Route::resource('/petugas', PetugasController::class)->middleware('auth');
+
+Route::resource('/peminjaman', PeminjamanController::class)->middleware('auth');
+
+Route::controller(AuthController::class)->group(function () {
+    //register form
+    Route::get('/register', 'register')->name('auth.register');
+
+    //store register
+    Route::post('/register', 'store')->name('auth.store');
+
+    //login form
+    Route::get('/login', 'login')->name('auth.login');
+
+    //auth process
+    Route::post('/auth', 'auth')->name('auth.authentication');
+
+    //logout
+    Route::post('/logout', 'logout')->name('auth.logout');
+
+    //dashboard
+    Route::get('/dashboard', 'dashboard')->name('auth.dashboard');
+});

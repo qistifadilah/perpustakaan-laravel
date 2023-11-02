@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('penulis_buku', 50);
             $table->string('penerbit_buku', 50);
             $table->char('tahun_terbit', 4);
-            $table->integer('stok', 11);
-            $table->foreignId('id_rak')->constrained();
+            $table->integer('stok');
+            $table->foreignId('id_rak')->constrained('raks');
             $table->timestamps();
         });
     }

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rak;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class RakController extends Controller
 {
@@ -13,8 +13,8 @@ class RakController extends Controller
     public function index()
     {
         //
-        $raks = DB::table('raks')->get();
-        return view ('rak.index', compact('raks'));
+        $raks = Rak::all();
+        return view('rak.index', compact('raks'));
     }
 
     /**
@@ -34,21 +34,21 @@ class RakController extends Controller
         //
         $request->validate([
             'nama_rak' => 'required',
-            'lokasi_rak' => 'required',
+            'lokasi_rak' => 'required'
         ]);
 
-        $query = DB::table('raks')->insert([
-            'nama_rak' => $request['nama_rak'],
-            'lokasi_rak' => $request['lokasi_rak'],
-        ]);
+        $raks = new Rak;
+        $raks->nama_rak = $request->nama_rak;
+        $raks->lokasi_rak = $request->lokasi_rak;
+        $raks->save();
 
-        return redirect('/rak');
+        return redirect()->route('rak.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Rak $raks)
     {
         //
     }
@@ -56,24 +56,35 @@ class RakController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Rak $rak)
     {
         //
+        return view('rak.edit', compact('rak'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Rak $raks)
     {
         //
+        $request->validate([
+            'nama_rak' => 'required',
+            'lokasi_rak' => 'required'
+        ]);
+
+        $raks->update($request->all());
+
+        return redirect()->route('rak.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Rak $raks)
     {
         //
+        $raks = Rak::where('id', $raks->id)->delete();
+        return redirect()->route('rak.index');
     }
 }

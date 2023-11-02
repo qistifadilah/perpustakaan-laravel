@@ -50,8 +50,8 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <div class="row justify-content-between">
-                                    <a class="btn btn-warning" href="{{ route('anggota.index') }}" role="button">Back</a>
+                                <div class="row">
+                                    <a class="btn btn-warning mr-3" href="{{ route('anggota.index') }}" role="button">Back</a>
                                     <button type="update" class="btn btn-warning">Update</button>
                                 </div>
                             </div>

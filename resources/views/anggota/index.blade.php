@@ -39,18 +39,48 @@
                                                 <td>{{ $values->no_telp_anggota }}</td>
                                                 <td>{{ $values->alamat_anggota }}</td>
                                                 <td>
-                                                    <form action="{{ route('anggota.destroy', $values->id) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <a href="{{ route('anggota.show', $values->id) }}"
-                                                            class="btn-sm btn-info">Show</a>
-                                                        <a href="{{ route('anggota.edit', $values->id) }}"
-                                                            class="btn-sm btn-warning">Edit</a>
-                                                        <button class="btn-sm btn-danger" data-toggle="modal"
-                                                            data-target="#modal-sm">Delete</button>
+                                                    <a href="{{ route('anggota.show', $values->id) }}"
+                                                        class="btn-sm btn-info">Show</a>
+                                                    <a href="{{ route('anggota.edit', $values->id) }}"
+                                                        class="btn-sm btn-warning">Edit</a>
+                                                    <!-- Button trigger modal -->
+                                                    <button type="button" class="btn-sm btn-danger" data-toggle="modal"
+                                                        data-target="#exampleModal">
+                                                        Delete
+                                                    </button>
 
-                                                    </form>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                                        Confirm</h1>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    Delete <strong>{{ $values->nama_anggota }}</strong>?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <form
+                                                                        action="{{ route('anggota.destroy', $values->id) }}"
+                                                                        id="delete" method="POST">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">Close</button>
+                                                                        <button class="btn btn-danger">
+                                                                            Delete
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @empty
@@ -68,7 +98,7 @@
                                     <div class="col-3">
                                         <a class="btn btn-primary" href="{{ route('anggota.create') }}" role="button">
                                             <i class="fas fa-plus"></i>
-                                             Data Anggota</a>
+                                            Data Anggota</a>
                                     </div>
                                     <div class="col-3">
                                         <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">

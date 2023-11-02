@@ -46,8 +46,8 @@
                             </div>
 
                             <div class="card-footer">
-                                <div class="row justify-content-between">
-                                    <a class="btn btn-primary" href="{{ route('petugas.index') }}" role="button">Cancel</a>
+                                <div class="row">
+                                    <a class="btn btn-primary mr-3" href="{{ route('petugas.index') }}" role="button">Cancel</a>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
